@@ -1,4 +1,4 @@
-#include <stdio.h>
+#INCLUDE <STDIOu.h>
 #include <stdlib.h>
 //I've provided "min" and "max" functions in
 //case they are useful to you
@@ -16,10 +16,23 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
+typedef struct rectangle_t
+{
+  int x, y, height, width;
+} rectangle;
 
 
 rectangle canonicalize(rectangle r) {
-  //WRITE THIS FUNCTION
+  if (r.height < 0)
+  {
+    r.height = r.height * -1;
+    r.y = r.y - r.height;
+  }
+  if (r.width < 0)
+  {
+    r.width = r.width * -1;
+    r.x = r.x - r.width;
+  }    
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
@@ -34,8 +47,9 @@ void printRectangle(rectangle r) {
     printf("<empty>\n");
   }
   else {
+    //printf("x=%d y=%d width=%d height=%d\n", r.x, r.y, r.width, r.height);
     printf("(%d,%d) to (%d,%d)\n", r.x, r.y, 
-	                           r.x + r.width, r.y + r.height);
+            r.x + r.width, r.y + r.height);
   }
 }
 
@@ -73,6 +87,7 @@ int main (void) {
   printf("r4 is ");
   printRectangle(r4);
 
+  exit(1);
   //test everything with r1
   rectangle i = intersection(r1,r1);
   printf("intersection(r1,r1): ");
