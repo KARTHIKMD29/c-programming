@@ -1,0 +1,94 @@
+Grading at Tue Jun 30 06:27:05 UTC 2020
+Compiling deck.c
+In file included from deck.h:4:0,
+                 from deck.c:4:
+cards.h:1:1: error: expected identifier or ‘(’ before ‘.’ token
+ ../c2prj1_cards/cards.h
+ ^
+In file included from deck.c:4:0:
+deck.h:8:2: error: ISO C does not allow extra ‘;’ outside of a function [-Werror=pedantic]
+ };
+  ^
+deck.h:12:31: error: unknown type name ‘card_t’
+ int deck_contains(deck_t * d, card_t c) ;
+                               ^
+deck.h:17:33: error: unknown type name ‘card_t’
+ void add_card_to(deck_t * deck, card_t c);
+                                 ^
+deck.h:18:1: error: unknown type name ‘card_t’
+ card_t * add_empty_card(deck_t * deck);
+ ^
+deck.c:6:10: error: unknown type name ‘card_t’
+ int com (card_t c1,card_t c2){
+          ^
+deck.c:6:20: error: unknown type name ‘card_t’
+ int com (card_t c1,card_t c2){
+                    ^
+deck.c: In function ‘print_hand’:
+deck.c:13:3: error: unknown type name ‘card_t’
+   card_t ** card =hand -> cards ;
+   ^
+deck.c:13:24: error: dereferencing pointer to incomplete type ‘deck_t {aka struct deck_tag}’
+   card_t ** card =hand -> cards ;
+                        ^
+deck.c:14:3: error: unknown type name ‘card_t’
+   card_t  card1;
+   ^
+deck.c:17:5: error: implicit declaration of function ‘print_card’ [-Werror=implicit-function-declaration]
+     print_card(card1);
+     ^
+deck.c: At top level:
+deck.c:21:31: error: unknown type name ‘card_t’
+ int deck_contains(deck_t * d, card_t c) {
+                               ^
+deck.c: In function ‘shuffle’:
+deck.c:31:3: error: unknown type name ‘card_t’
+   card_t ** card =d -> cards ;
+   ^
+deck.c:32:3: error: unknown type name ‘card_t’
+   card_t * temp;
+   ^
+deck.c: In function ‘assert_full_deck’:
+deck.c:44:3: error: unknown type name ‘card_t’
+   card_t ** card =d -> cards ;
+   ^
+deck.c:45:3: error: unknown type name ‘card_t’
+   card_t c;
+   ^
+deck.c:52:10: error: implicit declaration of function ‘com’ [-Werror=implicit-function-declaration]
+       if(com(**(card+j), c)) count ++;
+          ^
+deck.c: At top level:
+deck.c:58:33: error: unknown type name ‘card_t’
+ void add_card_to(deck_t * deck, card_t c){
+                                 ^
+deck.c:76:1: error: unknown type name ‘card_t’
+ card_t * add_empty_card(deck_t * deck){
+ ^
+deck.c: In function ‘add_empty_card’:
+deck.c:78:3: error: unknown type name ‘card_t’
+   card_t* c1=malloc(sizeof(*c1));
+   ^
+deck.c:80:5: error: request for member ‘value’ in something not a structure or union
+   c1->value = 0;
+     ^
+deck.c:82:5: error: request for member ‘suit’ in something not a structure or union
+   c1->suit = 0;
+     ^
+deck.c: In function ‘make_deck_exclude’:
+deck.c:108:5: error: unknown type name ‘card_t’
+     card_t c= card_from_num(i);
+     ^
+deck.c:108:15: error: implicit declaration of function ‘card_from_num’ [-Werror=implicit-function-declaration]
+     card_t c= card_from_num(i);
+               ^
+deck.c:110:9: error: implicit declaration of function ‘deck_contains’ [-Werror=implicit-function-declaration]
+     if(!deck_contains(excluded_cards,c)) add_card_to(ans,c);
+         ^
+deck.c:110:42: error: implicit declaration of function ‘add_card_to’ [-Werror=implicit-function-declaration]
+     if(!deck_contains(excluded_cards,c)) add_card_to(ans,c);
+                                          ^
+cc1: all warnings being treated as errors
+Could not compile your deck.c!
+
+Overall Grade: FAILED
