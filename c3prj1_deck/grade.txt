@@ -1,0 +1,116 @@
+Grading at Tue Jun 30 06:13:53 UTC 2020
+Compiling deck.c
+In file included from deck.h:4:0,
+                 from deck.c:4:
+cards.h:1:1: error: expected identifier or ‘(’ before ‘.’ token
+ ../c2prj1_cards/cards.h
+ ^
+In file included from deck.c:4:0:
+deck.h:9:2: error: ISO C does not allow extra ‘;’ outside of a function [-Werror=pedantic]
+ };
+  ^
+deck.h:13:31: error: unknown type name ‘card_t’
+ int deck_contains(deck_t * d, card_t c) ;
+                               ^
+deck.h:18:33: error: unknown type name ‘card_t’
+ void add_card_to(deck_t * deck, card_t c);
+                                 ^
+deck.h:19:1: error: unknown type name ‘card_t’
+ card_t * add_empty_card(deck_t * deck);
+ ^
+deck.c: In function ‘print_hand’:
+deck.c:8:29: error: dereferencing pointer to incomplete type ‘deck_t {aka struct deck_tag}’
+   for(size_t i = 0; i < hand->n_cards; i++) {
+                             ^
+deck.c:9:5: error: implicit declaration of function ‘print_card’ [-Werror=implicit-function-declaration]
+     print_card(*hand->cards[i]);
+     ^
+deck.c: At top level:
+deck.c:16:31: error: unknown type name ‘card_t’
+ int deck_contains(deck_t * d, card_t c) {
+                               ^
+deck.c: In function ‘randSorter’:
+deck.c:36:5: error: unknown type name ‘card_t’
+     card_t * card_p;
+     ^
+deck.c: In function ‘shuffle’:
+deck.c:55:5: error: unknown type name ‘card_t’
+     card_t * card_p;
+     ^
+deck.c: In function ‘assert_full_deck’:
+deck.c:76:3: error: unknown type name ‘card_t’
+   card_t card;
+   ^
+deck.c:80:8: error: unknown type name ‘suit_t’
+   for (suit_t i = SPADES; i < NUM_SUITS; i++) {
+        ^
+deck.c:80:19: error: ‘SPADES’ undeclared (first use in this function)
+   for (suit_t i = SPADES; i < NUM_SUITS; i++) {
+                   ^
+deck.c:80:19: note: each undeclared identifier is reported only once for each function it appears in
+deck.c:80:31: error: ‘NUM_SUITS’ undeclared (first use in this function)
+   for (suit_t i = SPADES; i < NUM_SUITS; i++) {
+                               ^
+deck.c:81:31: error: ‘VALUE_ACE’ undeclared (first use in this function)
+     for (unsigned j = 2; j <= VALUE_ACE; j++) {
+                               ^
+deck.c:83:11: error: request for member ‘value’ in something not a structure or union
+       card.value = j;
+           ^
+deck.c:84:11: error: request for member ‘suit’ in something not a structure or union
+       card.suit = i;
+           ^
+deck.c:85:22: error: implicit declaration of function ‘deck_contains’ [-Werror=implicit-function-declaration]
+       int contains = deck_contains(d, card);
+                      ^
+deck.c:88:34: error: implicit declaration of function ‘value_letter’ [-Werror=implicit-function-declaration]
+  printf("deck is missing %c%c\n",value_letter(card), suit_letter(card));
+                                  ^
+deck.c:88:54: error: implicit declaration of function ‘suit_letter’ [-Werror=implicit-function-declaration]
+  printf("deck is missing %c%c\n",value_letter(card), suit_letter(card));
+                                                      ^
+deck.c: At top level:
+deck.c:100:33: error: unknown type name ‘card_t’
+ void add_card_to(deck_t * deck, card_t c) {
+                                 ^
+deck.c:111:1: error: unknown type name ‘card_t’
+ card_t * add_empty_card(deck_t * deck) {
+ ^
+deck.c: In function ‘add_empty_card’:
+deck.c:112:3: error: unknown type name ‘card_t’
+   card_t empty;
+   ^
+deck.c:113:8: error: request for member ‘value’ in something not a structure or union
+   empty.value = 0;
+        ^
+deck.c:114:8: error: request for member ‘suit’ in something not a structure or union
+   empty.suit = 0;
+        ^
+deck.c:115:3: error: implicit declaration of function ‘add_card_to’ [-Werror=implicit-function-declaration]
+   add_card_to(deck, empty);
+   ^
+deck.c: In function ‘make_deck_exclude’:
+deck.c:128:38: error: invalid application of ‘sizeof’ to incomplete type ‘deck_t {aka struct deck_tag}’
+   deck_t * builtDeck = malloc(sizeof(deck_t)); //Allocate a deck_t
+                                      ^
+deck.c:131:3: error: unknown type name ‘card_t’
+   card_t card;
+   ^
+deck.c:133:12: error: implicit declaration of function ‘card_from_num’ [-Werror=implicit-function-declaration]
+     card = card_from_num(i);
+            ^
+deck.c: In function ‘build_remaining_deck’:
+deck.c:151:42: error: invalid application of ‘sizeof’ to incomplete type ‘deck_t {aka struct deck_tag}’
+   deck_t * exclusionDeck = malloc(sizeof(deck_t)); //allocate exclusion deck
+                                          ^
+deck.c:154:3: error: unknown type name ‘card_t’
+   card_t exclusionCard;
+   ^
+deck.c: In function ‘add_empty_card’:
+deck.c:117:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Could not compile your deck.c!
+
+Overall Grade: FAILED
